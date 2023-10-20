@@ -57,4 +57,18 @@ public class Repair {
         return true;
     }
 
+    public void addPayment(Payment payment) {
+        
+    }
+
+    public void addSparePart(SparePart part2) {
+    }
+
+    public String getSpareParts() {
+        return description;
+    }
+
+    public String getPayments() {
+        return description;
+    }
 }
