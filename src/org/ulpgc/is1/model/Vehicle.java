@@ -1,16 +1,12 @@
 package org.ulpgc.is1.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Vehicle {
-
-
     private String make;
     private String model;
     private Plate plate;
+    private Customer customer;
 
-    public Vehicle(String make, String model, Plate plate){
+    public Vehicle(String make, String model, Plate plate) {
         this.make = make;
         this.model = model;
         this.plate = plate;
@@ -28,6 +24,10 @@ public class Vehicle {
         return plate;
     }
 
+    public Customer getCustomer() {
+        return customer;
+    }
+
     public void setMake(String make) {
         this.make = make;
     }
@@ -40,6 +40,7 @@ public class Vehicle {
         this.plate = plate;
     }
 
-    public void setCustomer(Customer customer1) {
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }
