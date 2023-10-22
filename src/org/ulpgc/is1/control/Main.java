@@ -1,13 +1,11 @@
 package org.ulpgc.is1.control;
 
 import org.ulpgc.is1.model.*;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class Main {
-
     public static void init() {
         // i. Crear el perfil de dos mecánicos.
         Mechanic mechanic1 = new Mechanic("John", "Doe");
@@ -54,6 +52,8 @@ public class Main {
 
         // ix. Imprimir por pantalla el número de vehículos del taller.
         List<Vehicle> vehiclesInTaller = new ArrayList<>(); // Agrega todos los vehículos en el taller
+        vehiclesInTaller.add(vehicle1);
+        vehiclesInTaller.add(vehicle2); // Agrega todos los vehículos en el taller
         System.out.println("Número de vehículos en el taller: " + vehiclesInTaller.size());
 
         // x. Imprimir por pantalla toda la información de la reparación.
