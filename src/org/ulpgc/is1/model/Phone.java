@@ -25,7 +25,6 @@ public class Phone {
                 return false;
             }
         }
-
         return true;
     }
 }
