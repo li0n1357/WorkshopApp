@@ -16,8 +16,16 @@ public class Phone {
     }
 
     public boolean isValid() {
-        // Agrega una lógica real de validación de números de teléfono aquí.
-        // Por ejemplo, puedes verificar la longitud o el formato.
-        return true; // Devuelve true o false según la validación.
+        if (number == null || number.length() != 9) {
+            return false;
+        }
+
+        for (char digit : number.toCharArray()) {
+            if (!Character.isDigit(digit)) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
