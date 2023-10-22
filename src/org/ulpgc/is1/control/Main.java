@@ -15,7 +15,7 @@ public class Main {
         Plate plate1 = new Plate("ABC123");
         Plate plate2 = new Plate("XYZ789");
 
-        Phone phone1 = new Phone("123-456-7890"); // Cambiar por números válidos si es necesario.
+        Phone phone1 = new Phone("123-456-7890");
         Phone phone2 = new Phone("555-555-5555");
 
         Customer customer1 = new Customer("Customer 1", phone1);
@@ -51,9 +51,9 @@ public class Main {
         // (Puedes implementar un método en Vehicle o en una clase de taller para eliminar un vehículo)
 
         // ix. Imprimir por pantalla el número de vehículos del taller.
-        List<Vehicle> vehiclesInTaller = new ArrayList<>(); // Agrega todos los vehículos en el taller
+        List<Vehicle> vehiclesInTaller = new ArrayList<>();
         vehiclesInTaller.add(vehicle1);
-        vehiclesInTaller.add(vehicle2); // Agrega todos los vehículos en el taller
+        vehiclesInTaller.add(vehicle2);
         System.out.println("Número de vehículos en el taller: " + vehiclesInTaller.size());
 
         // x. Imprimir por pantalla toda la información de la reparación.
@@ -66,6 +66,6 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        init(); // Inicializar y realizar las acciones requeridas.
+        init();
     }
 }
