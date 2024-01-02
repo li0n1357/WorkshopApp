@@ -24,5 +24,10 @@ public class Customer {
     public void setPhone(Phone phone) {
         this.phone = phone;
     }
+
+    public static Customer createCustomer(String name, String phoneNumber) {
+        Phone phone = new Phone(phoneNumber);
+        return new Customer(name, phone);
+    }
 }
 

@@ -43,4 +43,9 @@ public class Vehicle {
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
+
+    public static Vehicle createVehicle(String make, String model, String plate, Customer customer) {
+        Plate vehiclePlate = new Plate(plate);
+        return new Vehicle(make, model, vehiclePlate, customer);
+    }
 }

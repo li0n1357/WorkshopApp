@@ -2,27 +2,31 @@ package org.ulpgc.is1.model;
 
 public class SparePart {
 
-    private String name;
-    private Integer price;
+    private final String name;
+    private final Integer price;
 
-    public SparePart(String name, Integer price){
+    public SparePart(String name, Integer price) {
+        if (name == null || name.isEmpty()) {
+            throw new IllegalArgumentException("El nombre no puede ser nulo o vacío");
+        }
+
+        if (price == null || price < 0) {
+            throw new IllegalArgumentException("El precio debe ser un valor no negativo");
+        }
+
         this.name = name;
         this.price = price;
     }
 
-    public String getName(){
-        return name;
+    public static SparePart createSparePart(String name, Integer price) {
+        return new SparePart(name, price);
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getPrice() {
-        return price;
-    }
-
-    public void setPrice(Integer price) {
-        this.price = price;
+    @Override
+    public String toString() {
+        return "SparePart{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                '}';
     }
 }
