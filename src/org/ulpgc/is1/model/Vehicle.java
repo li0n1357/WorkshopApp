@@ -1,14 +1,23 @@
 package org.ulpgc.is1.model;
 
 public class Vehicle {
+    private String plate;
     private String make;
     private String model;
-    private Plate plate;
     private Customer customer;
 
-    public Vehicle(String make, String model, Plate plate) {
+    public Vehicle(String plate, String make, String model, Customer customer) {
+        this.plate = plate;
         this.make = make;
         this.model = model;
+        this.customer = customer;
+    }
+
+    public String getPlate() {
+        return plate;
+    }
+
+    public void setPlate(String plate) {
         this.plate = plate;
     }
 
@@ -16,36 +25,23 @@ public class Vehicle {
         return make;
     }
 
-    public String getModel() {
-        return model;
-    }
-
-    public Plate getPlate() {
-        return plate;
-    }
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
     public void setMake(String make) {
         this.make = make;
+    }
+
+    public String getModel() {
+        return model;
     }
 
     public void setModel(String model) {
         this.model = model;
     }
 
-    public void setPlate(Plate plate) {
-        this.plate = plate;
+    public Customer getCustomer() {
+        return customer;
     }
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
-    }
-
-    public static Vehicle createVehicle(String make, String model, String plate, Customer customer) {
-        Plate vehiclePlate = new Plate(plate);
-        return new Vehicle(make, model, vehiclePlate, customer);
     }
 }
