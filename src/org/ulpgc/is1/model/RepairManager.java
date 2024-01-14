@@ -1,55 +1,63 @@
 package org.ulpgc.is1.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 public class RepairManager {
+    private List<SparePart> spareParts = new ArrayList<>();
+    private List<Mechanic> mechanic = new ArrayList<>();
+    private List<Vehicle> vehicles = new ArrayList<>();
+    private List<Repair> repairs = new ArrayList<>();
 
-    private List<Mechanic> mechanics;
-    private List<Vehicle> vehicles;
-    private List<Repair> repairs;
-    private List<SparePart> SparePart;
+    private Payment payment;
 
-    public RepairManager(){
-        mechanics = new ArrayList<>();
-        vehicles = new ArrayList<>();
-        repairs = new ArrayList<>();
-        SparePart = new ArrayList<>();
+    public RepairManager() {
     }
 
-    //Agregamos un mecánico a la lista de mecánicos
-    public void addMechanic(Mechanic mechanic){
-        mechanics.add(mechanic);
+    public void addMechanic(String name, String surname) {
+        Mechanic mechanic1 = new Mechanic(name, surname);
+        mechanic.add(mechanic1);
     }
 
-    //Obtenemos un mecánico por índice y devolvemos null si el índice es inválido
-    public Mechanic getMechanic(int index) {
-        if (index >= 0 && index < mechanics.size()) {
-            return mechanics.get(index);
-        }
-        return null;
+    public List<Mechanic> getMechanic() {
+        return new ArrayList<>(this.mechanic);
     }
 
-    //Ahora agregamos un vehículo a la lista de vehículos
-    public void addVehicle(Vehicle vehicle){
+    public void addVehicle(String make, String model, Plate plate, Customer owner) {
+        Vehicle vehicle = new Vehicle(make, model, plate, owner);
         vehicles.add(vehicle);
     }
 
-    //Obtenemos un vehículo por índice y devolvemos null si el índice es inválido
-    public Vehicle getVehicle(int index){
-        if (index >= 0 && index < vehicles.size()) {
-            return vehicles.get(index);
-        }
-        return null;
+    public List<Vehicle> getVehicles() {
+        return new ArrayList<>(this.vehicles);
     }
 
     public void removeVehicle(Vehicle vehicle) {
         this.vehicles.remove(vehicle);
     }
 
+    public void addSparePart(String name, int price) {
+        SparePart sparePart = new SparePart(name, price);
+        spareParts.add(sparePart);
+    }
+
+
+    public List<SparePart> getSpareParts() {
+        return spareParts;
+    }
+
+    public void addRepair(Date date, String description, int effort, Vehicle vehicle, BreakdownTypes breakDownTypes, Mechanic mechanic) throws Exception {
+
+        Repair repair = new Repair(date, description, effort, vehicle, breakDownTypes);
+        repair.setMechanics(mechanic);
+        this.repairs.add(repair);
+    }
+
     public List<Repair> getRepairs() {
         return new ArrayList<>(this.repairs);
     }
-    public List<SparePart> getSparePart() {return SparePart;}
+
+
+
 }
