@@ -1,10 +1,22 @@
 package org.ulpgc.is1.model;
 
 public class Phone {
+
     private String number;
 
-    public Phone(String number) {
-        this.number = number;
+    public Phone(String number){
+        if (isValid(number)) {
+            this.number = number;
+        } else {
+            this.number = "XXXX";
+        }
+    }
+
+    public boolean isValid(String phone) {
+        for (int i = 0; i < phone.length(); i++) {
+            if (!Character.isDigit(phone.charAt(i))) return false;
+        }
+        return true;
     }
 
     public String getNumber() {
@@ -12,19 +24,10 @@ public class Phone {
     }
 
     public void setNumber(String number) {
-        this.number = number;
-    }
-
-    public boolean isValid() {
-        if (number == null || number.length() != 9) {
-            return false;
-        }
-
-        for (char digit : number.toCharArray()) {
-            if (!Character.isDigit(digit)) {
-                return false;
-            }
-        }
-        return true;
-    }
+        if (isValid(number)) {
+            this.number = number;
+        } else {
+            this.number = "XXXX";
+                            }
+                }
 }
