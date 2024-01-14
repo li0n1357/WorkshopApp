@@ -6,8 +6,7 @@ public class Payment {
 
     private Date date;
     private int amount;
-
-    public Payment(Date date, int amount){
+    public Payment(Date date, int amount) {
         this.date = date;
         this.amount = amount;
     }
@@ -16,15 +15,19 @@ public class Payment {
         return date;
     }
 
-    public int getAmount() {
-        return amount;
-    }
-
     public void setDate(Date date) {
         this.date = date;
     }
 
-    public void setAmount(Integer amount) {
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
         this.amount = amount;
     }
+    @Override
+    public String toString(){
+        return "Fecha pago " + this.getDate().toString() + ", cantidad pagada: " + this.getAmount();
+                }
 }
