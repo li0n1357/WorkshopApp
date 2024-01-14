@@ -1,24 +1,23 @@
 package org.ulpgc.is1.model;
 
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Vehicle {
-    private String plate;
+
     private String make;
     private String model;
-    private Customer customer;
+    private Plate plate;
+    private Customer owner;
+    private List<Repair> repairList;
 
-    public Vehicle(String plate, String make, String model, Customer customer) {
-        this.plate = plate;
+    public Vehicle(String make, String model, Plate plate, Customer owner) {
         this.make = make;
         this.model = model;
-        this.customer = customer;
-    }
-
-    public String getPlate() {
-        return plate;
-    }
-
-    public void setPlate(String plate) {
         this.plate = plate;
+        this.owner = owner;
+        this.repairList = new ArrayList<>();
     }
 
     public String getMake() {
@@ -37,11 +36,40 @@ public class Vehicle {
         this.model = model;
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public Plate getPlate() {
+        return plate;
+    }
+    public void setPlate(Plate plate) {
+        this.plate = plate;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public Customer getOwner() {
+        return owner;
     }
+
+    public void setOwner(Customer owner) {
+        this.owner.removeVehicle(this);
+        this.owner = owner;
+        owner.addVehicle(this);
+    }
+
+    public List<Repair> getRepairList() {
+        return repairList;
+    }
+
+    public void addRepair(Repair repair){
+        if(!repairList.contains(repair)) return;
+        repairList.add(repair);
+    }
+    @Override
+    public String toString(){
+        return  "Make: " + this.getMake() + ", model: " + this.getModel() + ", owner: " + this.getOwner().getName() + ", plate: " + this.getPlate();
+    }
+    @Override
+    public boolean equals(Object o){
+        if (!(o instanceof Vehicle)) return false;
+        Vehicle other = (Vehicle) o;
+        return other.plate.equals(this.plate);
+                }
+
 }
