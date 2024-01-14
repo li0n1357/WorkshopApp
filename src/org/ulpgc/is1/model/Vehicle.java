@@ -53,7 +53,7 @@ public class Vehicle {
         owner.addVehicle(this);
     }
 
-    public List<Repair> getRepairList() {
+    public static List<Repair> getRepairList() {
         return repairList;
     }
 
@@ -66,10 +66,10 @@ public class Vehicle {
         return  "Make: " + this.getMake() + ", model: " + this.getModel() + ", owner: " + this.getOwner().getName() + ", plate: " + this.getPlate();
     }
     @Override
-    public boolean equals(Object o){
+    public boolean equals(Object o) {
         if (!(o instanceof Vehicle)) return false;
         Vehicle other = (Vehicle) o;
         return other.plate.equals(this.plate);
-                }
+    }
 
 }
